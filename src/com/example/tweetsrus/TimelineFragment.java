@@ -1,6 +1,7 @@
 package com.example.tweetsrus;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,6 +16,9 @@ import com.twitterapime.search.Tweet;
 import com.twitterapime.search.TweetEntity;
 import com.twitterapime.xauth.Token;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -25,6 +29,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -33,11 +38,14 @@ import android.widget.Toast;
 public class TimelineFragment extends Fragment{
 	UserAccountManager manager;
 	List<Tweet> tweets;
+	List<Tweet> newTweets;
+	public final String name = "FUCKED";
 	private Handler handle;
 	@Override
 	public void onCreate(Bundle savedState){
 		super.onCreate(savedState);
 		tweets = new ArrayList<Tweet>();
+		newTweets = new ArrayList<Tweet>();
 		Token token = new Token(TweetHome.TOKEN_ACCESS, TweetHome.TOKEN_SECRET);
 		Credential c = new Credential("StylerMyers", TweetHome.CONSUMER_KEY, TweetHome.CONSUMER_SECRET, token);
 		manager = UserAccountManager.getInstance(c);
@@ -60,8 +68,9 @@ public class TimelineFragment extends Fragment{
 			@Override
 			public void handleMessage(Message msg){
 				Bundle bundle = msg.getData();
-				Tweet herp = new Tweet();
 				if(bundle.getBoolean("new_tweet", false)){
+					tweets.addAll(newTweets);
+					newTweets.clear();
 					tweetAdapter.notifyDataSetChanged();
 				}
 			}
@@ -86,16 +95,18 @@ public class TimelineFragment extends Fragment{
 						Message m = new Message();
 						m.setData(b);
 						handle.sendMessage(m);
+						Log.e(name, "DONE!");
 					}
 
 					@Override
 					public void searchFailed(Throwable arg0) {
-						Log.e("Fucked", arg0.toString());
+						Log.e(name, arg0.toString());
+						logz();
 					}
 
 					@Override
 					public void tweetFound(Tweet tweet) {
-						tweets.add(tweet);
+						newTweets.add(tweet);
 					}
 					
 				};
@@ -109,7 +120,14 @@ public class TimelineFragment extends Fragment{
 
 	}
 	
+	public void logz(){
+		Log.e("AHOY", "THERE");
+	}
+	
 	public void tweetPull(Query q, SearchDeviceListener s, Timeline t){
 		t.startGetHomeTweets(q, s);
 	}
+	
+	
+	
 }
