@@ -150,17 +150,32 @@ public class TweetHome extends FragmentActivity implements
 			// getItem is called to instantiate the fragment for the given page.
 			// Return a DummySectionFragment (defined as a static inner class
 			// below) with the page number as its lone argument.
-			Fragment fragment = new DummySectionFragment();
-			Bundle args = new Bundle();
-			args.putInt(DummySectionFragment.ARG_SECTION_NUMBER, position + 1);
-			fragment.setArguments(args);
+			Fragment fragment = null;
+			if(position == 0){
+				fragment = new TimelineFragment();
+				Bundle args = new Bundle();
+				args.putInt(DummySectionFragment.ARG_SECTION_NUMBER, position + 1);
+				fragment.setArguments(args);
+			}
+			else if(position == 1){
+				fragment = new MentionTimelineFragment();
+				Bundle args = new Bundle();
+				args.putInt(DummySectionFragment.ARG_SECTION_NUMBER, position + 1);
+				fragment.setArguments(args);
+			}
+			else{
+				fragment = new DummySectionFragment();
+				Bundle args = new Bundle();
+				args.putInt(DummySectionFragment.ARG_SECTION_NUMBER, position + 1);
+				fragment.setArguments(args);
+			}
 			return fragment;
 		}
 
 		@Override
 		public int getCount() {
 			// Show 2 total pages.
-			return 2;
+			return 3;
 		}
 
 		@Override
