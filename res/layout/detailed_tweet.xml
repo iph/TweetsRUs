@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="7dp" >
+
+    <TextView
+        android:id="@+id/following_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/follower_count"
+        android:layout_alignBottom="@+id/follower_count"
+        android:layout_alignRight="@+id/datetime01"
+        android:padding="5dp"
+        android:text="zz Following"
+        android:textColor="@color/greenish_light"
+        android:textSize="11sp"
+        android:typeface="monospace" />
+
+    <TextView
+        android:id="@+id/tweet_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/separator6"
+        android:layout_alignLeft="@+id/username2"
+        android:layout_marginBottom="8dp"
+        android:padding="5dp"
+        android:text="XX Tweets"
+        android:textColor="@color/greenish_light"
+        android:textColorHint="@color/greenish_light"
+        android:textSize="11sp"
+        android:typeface="monospace" />
+
+    <TextView
+        android:id="@+id/follower_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tweet_count"
+        android:layout_alignBottom="@+id/tweet_count"
+        android:layout_centerHorizontal="true"
+        android:padding="5dp"
+        android:text="YY Followers"
+        android:textColor="@color/greenish_light"
+        android:textSize="11sp"
+        android:typeface="monospace" />
+
+    <View
+        android:id="@+id/View01"
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/username2"
+        android:layout_marginTop="20dp"
+        android:background="#E0E0E0"
+        android:visibility="visible" />
+
+    <View
+        android:id="@+id/separator6"
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/View01"
+        android:layout_marginTop="39dp"
+        android:background="#E0E0E0"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/username2"
+        android:layout_below="@+id/username2"
+        android:layout_marginTop="1dp"
+        android:paddingLeft="7dp"
+        android:text="(@Name)"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#98A3A6"
+        android:textSize="11sp" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tweet_count"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="17dp"
+        android:fontFamily="georgia"
+        android:padding="8dp"
+        android:text="This is a lot of text to input to check if this is a tweet"
+        android:textStyle="normal"
+        android:typeface="normal" />
+
+    <TextView
+        android:id="@+id/username2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="14dp"
+        android:paddingLeft="7dp"
+        android:text="Username"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/gray_gray"
+        android:typeface="sans" />
+
+    <TextView
+        android:id="@+id/datetime01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView2"
+        android:layout_alignRight="@+id/View01"
+        android:layout_marginBottom="5dp"
+        android:paddingBottom="5dp"
+        android:paddingRight="10dp"
+        android:text="EEE, DD, MON"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/gray_gray"
+        android:textSize="12sp"
+        android:typeface="monospace" />
+
+</RelativeLayout>

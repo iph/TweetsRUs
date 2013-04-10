@@ -13,8 +13,6 @@ public class MentionTimelineFragment extends TimelineFragment{
 	
 	@Override
 	public void tweetPull(Query q, SearchDeviceListener s, Timeline t){
-		//t.startGetRetweetsByMe(q, s)
-		//t.startGetDirectMessages(q, false, s);
 		t.startGetMentions(q, s);
 	}
 	
