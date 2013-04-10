@@ -20,6 +20,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class PostTweet extends Activity {
 
@@ -32,7 +33,7 @@ public class PostTweet extends Activity {
 		final Button postTweet = (Button) this.findViewById(R.id.post_tweet);
 		postTweet.setEnabled(false);
 		postTweet.setText("Write something...");
-
+		final Activity _this = this;
 		postTweet.setOnClickListener(new OnClickListener(){
 
 			@Override
@@ -72,7 +73,9 @@ public class PostTweet extends Activity {
 				} catch (LimitExceededException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
-				}			
+				}	
+				Toast.makeText(_this, "Posted tweet!", Toast.LENGTH_LONG).show();
+				_this.finish();
 			}
 			
 		});

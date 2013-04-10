@@ -175,7 +175,7 @@ public class TweetHome extends FragmentActivity implements
 		@Override
 		public int getCount() {
 			// Show 2 total pages.
-			return 3;
+			return 2;
 		}
 
 		@Override
