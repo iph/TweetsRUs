@@ -62,7 +62,7 @@ public class TweetHome extends FragmentActivity implements
 	
 		try {
 			if(manager.verifyCredential()){
-				Toast.makeText(this, "Verified byaaa", Toast.LENGTH_LONG).show();
+				Toast.makeText(this, "Verified", Toast.LENGTH_LONG).show();
 			}else{
 				Toast.makeText(this, "Didn't get verified", Toast.LENGTH_SHORT).show();
 			}
@@ -175,7 +175,7 @@ public class TweetHome extends FragmentActivity implements
 		@Override
 		public int getCount() {
 			// Show 2 total pages.
-			return 3;
+			return 2;
 		}
 
 		@Override
